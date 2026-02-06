@@ -1,8 +1,7 @@
 'use server'
 
-import { redirect } from 'next/navigation'
 import { getCurrentUser } from '../auth'
-import prisma from '../prisma'
+import prisma from '@/lib/prisma'
 import { z } from 'zod'
 
 const ProductSchema = z.object({
@@ -41,8 +40,8 @@ export async function createProduct(formData: FormData) {
     await prisma.product.create({
       data: { ...parsed.data, userId: user.id },
     })
-    redirect('/inventory')
   } catch (error) {
+    console.log('Error', error)
     throw new Error('Failed to create product.')
   }
 }

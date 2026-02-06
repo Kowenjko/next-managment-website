@@ -1,9 +1,10 @@
 import Sidebar from '@/components/sidebar'
 import Title from '@/components/title'
-//import { getCurrentUser } from '@/lib/auth'
+import { getCurrentUser } from '@/lib/auth'
 import { AccountSettings } from '@stackframe/stack'
 
-export default function SettingsPage() {
+export default async function SettingsPage() {
+  const user = await getCurrentUser()
   return (
     <div className="min-h-screen bg-gray-50">
       <Sidebar currentPath="/settings" />

@@ -1,13 +1,23 @@
-import { SignIn } from "@stackframe/stack";
-import Link from "next/link";
+import { SignIn } from '@stackframe/stack'
+import Link from 'next/link'
+import { stackServerApp } from '@/stack/server'
+import { redirect } from 'next/navigation'
 
-export default function SignInPage(){
+export default async function SignInPage() {
+  const user = await stackServerApp.getUser()
+  if (user) {
+    redirect('/dashboard')
+  }
+
   return (
-  <div className="min-h-screen flex-center bg-primary-page">
-    <div className="max-w-md w-full space-y-8">
-      <SignIn/>
-      <Link href="/" className="underline text-sm"> Go Back Home</Link>
+    <div className="min-h-screen flex-center bg-primary-page">
+      <div className="max-w-md w-full space-y-8">
+        <SignIn />
+        <Link href="/" className="underline text-sm">
+          {' '}
+          Go Back Home
+        </Link>
+      </div>
     </div>
-  </div>
   )
 }
