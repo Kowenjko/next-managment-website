@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function SignInPage(){
   return (
-  <div className="min-h-screen flex-center">
+  <div className="min-h-screen flex-center bg-primary-page">
     <div className="max-w-md w-full space-y-8">
       <SignIn/>
       <Link href="/" className="underline text-sm"> Go Back Home</Link>

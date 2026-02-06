@@ -6,7 +6,7 @@ import { stackServerApp } from "@/stack/server";
 export default async function Home() {
   const user = await stackServerApp.getUser();
   return (
-    <div className="min-h-screen  flex-center">
+    <div className="min-h-screen  flex-center bg-primary-page">
       <div className="container mx-auto px-4 py-16">
         <div className="text-center">
           <h1 className="text-5xl font-bold text-gray-900 mb-6">
